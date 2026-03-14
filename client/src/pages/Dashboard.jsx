@@ -1,3 +1,6 @@
+import React from 'react';
+import { useAuth } from '../context/AuthContext';
+import { Users, Activity, Clock, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogOut, LayoutDashboard, User, Activity, Clock, Heart, Brain, Droplet, Pill, CalendarClock, TrendingUp } from 'lucide-react';
@@ -5,8 +8,7 @@ import { useAuth } from '../context/AuthContext';
 import { modelService } from '../services/api';
 
 const Dashboard = () => {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const { user } = useAuth();
 
   // Form State matching the ML backend payload expectations
   const [formData, setFormData] = useState({
@@ -270,8 +272,29 @@ const Dashboard = () => {
 
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Recent Activity */}
+      <div className="bg-dark border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg overflow-hidden">
+        <div className="p-6 border-b border-[rgba(255,255,255,0.05)]">
+          <h2 className="text-xl font-bold font-outfit text-white">Recent Clinical Activity</h2>
         </div>
-      </main>
+        <div className="divide-y divide-[rgba(255,255,255,0.05)]">
+          {activities.map((item) => (
+            <div key={item.id} className="p-6 flex items-start gap-4 hover:bg-white/[0.02] transition-colors">
+              <div className="mt-1 flex-shrink-0">
+                <CheckCircle2 size={20} className="text-brand-400" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white font-medium">{item.user}</p>
+                <p className="text-text-secondary text-sm mt-0.5">{item.action}</p>
+              </div>
+              <span className="text-xs text-text-secondary whitespace-nowrap">{item.time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
