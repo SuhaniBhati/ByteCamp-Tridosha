@@ -49,7 +49,7 @@ const Home = () => {
             <ActivitySquare color="var(--accent-color)" size={24} />
           </div>
           <span style={{ fontWeight: '800', fontSize: '1.5rem', letterSpacing: '-0.02em', color: 'white' }}>
-            ChronoMed<span style={{ color: 'var(--accent-color)' }}>.AI</span>
+            Chrono<span style={{ color: 'var(--accent-color)' }}>Med</span>
           </span>
         </div>
 
@@ -136,9 +136,6 @@ const Home = () => {
               <Link to="/register" className="btn-primary" style={{ padding: '14px 28px', fontSize: '1rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem', width: 'auto' }}>
                 <Activity size={18} /> Generate My Optimal Schedule
               </Link>
-              <button className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '14px 28px', fontSize: '1rem' }}>
-                <PlayCircle size={18} /> View Clinical Demo
-              </button>
             </div>
           </div>
 
@@ -237,7 +234,7 @@ const Home = () => {
         background: 'rgba(0, 0, 0, 0.2)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white', fontWeight: '600' }}>
-          <ActivitySquare size={20} color="var(--accent-color)" /> ChronoMed.AI
+          <ActivitySquare size={20} color="var(--accent-color)" /> ChronoMed
         </div>
         <p>© 2026 Team Tridosha. Chronobiology-Aware Pharmacological Systems.</p>
       </footer>
